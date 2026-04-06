@@ -1,54 +1,138 @@
-# MarketResearchCrew Crew
+# 🚀 Market Research Multi-Agent System (CrewAI)
 
-Welcome to the MarketResearchCrew Crew project, powered by [crewAI](https://crewai.com). This template is designed to help you set up a multi-agent AI system with ease, leveraging the powerful and flexible framework provided by crewAI. Our goal is to enable your agents to collaborate effectively on complex tasks, maximizing their collective intelligence and capabilities.
+A powerful **multi-agent market research system** built using **CrewAI** that automates end-to-end business analysis including:
 
-## Installation
+- 📊 Market Research
+- 🧠 Competitive Intelligence
+- 👥 Customer Insights
+- 📈 Product Strategy
+- 💼 Business Analysis
 
-Ensure you have Python >=3.10 <3.14 installed on your system. This project uses [UV](https://docs.astral.sh/uv/) for dependency management and package handling, offering a seamless setup and execution experience.
+The system leverages **AI agents + real-time web data** to generate structured, data-driven reports.
 
-First, if you haven't already, install uv:
+---
+
+## 🧠 Architecture
+
+This project follows a **sequential multi-agent pipeline**:
+Market Research Agent
+↓
+Competitive Intelligence Agent
+↓
+Customer Insights Agent
+↓
+Product Strategy Agent
+↓
+Business Analyst Agent (Final Report)
+
+
+Each agent:
+- Specializes in a specific domain
+- Uses outputs from previous agents (context sharing)
+- Contributes to the final report
+
+---
+
+## ⚙️ Features
+
+- 🤖 Multi-agent collaboration using CrewAI
+- 🌐 Real-time web data using:
+  - Serper (Google Search API)
+  - Website scraping
+  - Selenium-based scraping
+- 🔗 Context-aware task chaining
+- 📄 Automated report generation (`reports/report.md`)
+- 🧩 Modular and extensible architecture
+
+---
+
+## 🛠️ Tech Stack
+
+- **CrewAI** – Multi-agent orchestration
+- **Python** – Core programming
+- **SerperDevTool** – Web search
+- **ScrapeWebsiteTool** – Web scraping
+- **SeleniumScrapingTool** – Advanced scraping
+- **dotenv** – Environment management
+
+---
+
+## 🔑 Setup Instructions
+
+### 1. Clone the repository
 
 ```bash
-pip install uv
+git clone https://github.com/your-username/market-research-crew.git
+cd market-research-crew
 ```
 
-Next, navigate to your project directory and install the dependencies:
-
-(Optional) Lock the dependencies and install them by using the CLI command:
+2. Create virtual environment
 ```bash
-crewai install
+python -m venv .venv
+.venv\Scripts\activate   # Windows
 ```
-### Customizing
 
-**Add your `OPENAI_API_KEY` into the `.env` file**
+3. Install dependencies
+```bash
+uv sync
+```
 
-- Modify `src/market_research_crew/config/agents.yaml` to define your agents
-- Modify `src/market_research_crew/config/tasks.yaml` to define your tasks
-- Modify `src/market_research_crew/crew.py` to add your own logic, tools and specific args
-- Modify `src/market_research_crew/main.py` to add custom inputs for your agents and tasks
+4. Setup environment variables
 
-## Running the Project
+Create a .env file:
+```bash
+MODEL=your_model_name
+GOOGLE_API_KEY=your_gemini_api_key
+SERPER_API_KEY=your_serper_api_key
+```
 
-To kickstart your crew of AI agents and begin task execution, run this from the root folder of your project:
+5. Run the project
+```bash
+crewai run
+```
+---
+
+## 📄 Output
+
+The final report is generated at:
 
 ```bash
-$ crewai run
+reports/report.md
 ```
 
-This command initializes the market-research-crew Crew, assembling the agents and assigning them tasks as defined in your configuration.
+### Includes:
 
-This example, unmodified, will run the create a `report.md` file with the output of a research on LLMs in the root folder.
+- Market size (TAM, SAM, SOM)
+- Industry trends
+- Competitive analysis
+- Customer insights
+- Strategic recommendations
 
-## Understanding Your Crew
+---
 
-The market-research-crew Crew is composed of multiple AI agents, each with unique roles, goals, and tools. These agents collaborate on a series of tasks, defined in `config/tasks.yaml`, leveraging their collective skills to achieve complex objectives. The `config/agents.yaml` file outlines the capabilities and configurations of each agent in your crew.
+## 🚀 Use Case
 
-## Support
+This system can be used for:
 
-For support, questions, or feedback regarding the MarketResearchCrew Crew or crewAI.
-- Visit our [documentation](https://docs.crewai.com)
-- Reach out to us through our [GitHub repository](https://github.com/joaomdmoura/crewai)
-- [Join our Discord](https://discord.com/invite/X4JWnZnxPb)
-- [Chat with our docs](https://chatg.pt/DWjSBZn)
+- Startup idea validation
+- Market analysis for new products
+- Competitive intelligence
+- Business strategy planning
+- AI-powered consulting tools
 
-Let's create wonders together with the power and simplicity of crewAI.
+---
+
+## 🔥 Future Improvements
+- Multi-crew orchestration
+- Memory & long-term context
+- API deployment (FastAPI / Streamlit)
+- Dashboard visualization
+- Cost optimization & caching
+
+---
+  
+## 🧠 Key Learning
+
+This project demonstrates:
+- Multi-agent system design
+- Task orchestration using CrewAI
